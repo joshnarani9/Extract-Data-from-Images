@@ -10,7 +10,7 @@ from flask import Flask, request, redirect, url_for,render_template,jsonify
 from werkzeug.utils import secure_filename
 
 from sypht.client import SyphtClient, Fieldset
-import matplotlib.image as plt
+#import matplotlib.image as plt
 #import requests
 import os
 app = Flask(__name__)
