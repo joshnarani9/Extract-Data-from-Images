@@ -30,7 +30,7 @@ def upload_file():
         file = request.files['file']
         filename = secure_filename(file.filename)
         file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
-        with open(filename,'rb') as f:
+        with open('static/{}'.format(filename),'rb') as f:
         #print(flpth)
         #file=bytes(file, 'utf-8')
         #with open((filename),'rb') as f:
