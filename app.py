@@ -15,7 +15,7 @@ app = Flask(__name__)
 app.config['UPLOAD_FOLDER'] = 'static/'
 ##sypht clientid,secretkey can be obtained by registering in sypht.com
 ##please enter your own secretkey as i replaced my secretkey with dots for security reasons...
-scc = SyphtClient('JNSJgJF3SEltPf11DZLtdPE9SFPdrmlh','HFbQPHKS_hKCxNTqOala7ZbArrc6jcFx2OPZOuSTIGYTwkvunGcBkLyblIube0dR')
+scc = SyphtClient('JNSJgJF3SEltPf11DZLtdPE9SFPdrmlh','••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••')
 @app.route('/', methods=['GET', 'POST'])
 def upload_file():
     if request.method == 'POST':
