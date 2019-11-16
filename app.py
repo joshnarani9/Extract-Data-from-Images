@@ -1,23 +1,19 @@
-# -*- coding: utf-8 -*-
-"""
-Created on Fri Nov 15 11:59:02 2019
-
-@author: joshnarani
-"""
 
 
+###importing libraries
 from flask import Flask, request, redirect, url_for,render_template,jsonify
 from werkzeug.utils import secure_filename
 
-from sypht.client import SyphtClient, Fieldset
+from sypht.client import SyphtClient, Fieldset  ##sypht is used to extract insights data for all types of files
 #import matplotlib.image as plt
 #import requests
 import os
 app = Flask(__name__)
-from io import BytesIO
+#from io import BytesIO
 #from PIL import Image
+##give a folder to store uploaded images
 app.config['UPLOAD_FOLDER'] = 'static/'
-scc = SyphtClient('JNSJgJF3SEltPf11DZLtdPE9SFPdrmlh','HFbQPHKS_hKCxNTqOala7ZbArrc6jcFx2OPZOuSTIGYTwkvunGcBkLyblIube0dR')
+scc = SyphtClient('JNSJgJF3SEltPf11DZLtdPE9SFPdrmlh','••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••')
 @app.route('/', methods=['GET', 'POST'])
 def upload_file():
     if request.method == 'POST':
@@ -26,19 +22,18 @@ def upload_file():
             print('No file part')
             return redirect(request.url)
         #if file:
-        #file = request.files['file']
         file = request.files['file']
         filename = secure_filename(file.filename)
-        file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
+        file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))   ##saving file into folder
         with open('static/{}'.format(filename),'rb') as f:
         #print(flpth)
         #file=bytes(file, 'utf-8')
         #with open((filename),'rb') as f:
         #with Image.open(BytesIO(file)) as f:
             fid = scc.upload(f, fieldsets=["document"])
-        ab=scc.fetch_results(fid)
+        ab=scc.fetch_results(fid)        ###fetching the information present in the receipts
             #ab['document.date']
-        if not ab:
+        if not ab:           ###checking if the dictionary is empty or not and returning respective result
         #print('none')
                 dates='null'
         else:
