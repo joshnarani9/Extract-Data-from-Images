@@ -13,6 +13,8 @@ app = Flask(__name__)
 #from PIL import Image
 ##give a folder to store uploaded images
 app.config['UPLOAD_FOLDER'] = 'static/'
+##sypht clientid,secretkey can be obtained by registering in sypht.com
+##please enter your own secretkey as i replaced my secretkey with dots for security reasons...
 scc = SyphtClient('JNSJgJF3SEltPf11DZLtdPE9SFPdrmlh','••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••')
 @app.route('/', methods=['GET', 'POST'])
 def upload_file():
@@ -37,7 +39,7 @@ def upload_file():
         #print('none')
                 dates='null'
         else:
-                dates=ab['document.date']
+                dates=ab['document.date']  ###extracting date of the uploaded file from the obtained dictionary result
         path_to_image = url_for('static', filename = filename)
         return render_template('result.html',dates=dates,path_to_image=path_to_image)
     return render_template('index.html')
