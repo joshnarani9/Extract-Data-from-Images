@@ -46,8 +46,10 @@ correctdates=total-nodates
 #accuracy = (number of receipts for which the service extracted correct date/total receipts)*100%
 
 accuracy=(correctdates/total)*100
+print('Accuracy is : {}'.format(accuracy))
+
 # =============================================================================
-# with open(r'C:\Users\..\Downloads\Desktop\syphtclient\Receipts\0a0ebd53.jpeg', 'rb') as f:
+# with open(r'C:\Users\..\Downloads\Desktop\Receipts\0a0ebd53.jpeg', 'rb') as f:
 #     fid = scc.upload(f, fieldsets=["document"])
 # ab=scc.fetch_results(fid)
 # #print(scc.fetch_results(fid))
@@ -72,7 +74,7 @@ accuracy=(correctdates/total)*100
 #from PIL import Image
 #from io import BytesIO
 
-#Image.open(BytesIO(r'C:\Users\Srinivas\Downloads\Desktop\syphtclient\Receipts\5bb556be.jpeg'),'rb')
+#Image.open(BytesIO(r'C:\Users\..\Downloads\Desktop\Receipts\5bb556be.jpeg'),'rb')
 
 # =============================================================================
 # 
